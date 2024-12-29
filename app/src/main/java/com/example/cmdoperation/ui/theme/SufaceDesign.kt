@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun CMDpage(modifier: Modifier
+fun CMDpage(
 ){
     Column(modifier = Modifier
         //.fillMaxSize()

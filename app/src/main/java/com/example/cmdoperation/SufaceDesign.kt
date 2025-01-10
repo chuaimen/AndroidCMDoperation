@@ -56,6 +56,7 @@ fun CMDpage(modifier: Modifier){
         selectedFileUri = uir
     }
 
+    val context = LocalContext.current
 
 
     Column(modifier = Modifier
@@ -84,6 +85,20 @@ fun CMDpage(modifier: Modifier){
                 //打开文件
                 OutlinedButton(
                     onClick = {
+
+                        val uri = FileProvider.getUriForFile(
+                            context,
+                            "${context.packageName}.provider",
+                            File(selectedFileUri.toString())
+                            )
+
+                        val urlIntent = Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse("com.android.providers\n" +
+                                    ".media.documents/document/image%3A1000000525")
+                            )
+
+                        context.startActivity(urlIntent)
 
                     }
                 ) { Text(" Open") }
